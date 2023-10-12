@@ -25,6 +25,45 @@
         <members>Create_Add</members>
         <name>Flow</name>
     </types>
+	<types>
+		<members>AdVent</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>Add__c</members>
+		<members>Assign_Add__c</members>
+		<members>Client__c</members>
+		<members>Redemption__c</members>
+		<members>User__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Add__c</members>
+		<members>Advertisement</members>
+		<members>Assign_Add__c</members>
+		<members>Client__c</members>
+		<members>Redemption__c</members>
+		<members>User__c</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>AdVent_UtilityBar</members>
+		<members>Add_Record_Page</members>
+		<members>Advertisement</members>
+		<members>Assign_Add</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>Create_Add</members>
+		<name>Flow</name>
+	</types>
+	<types>
+		<members>Add__c-Add Layout</members>
+		<members>Assign_Add__c-Assign Add Layout</members>
+		<members>Client__c-Client Layout</members>
+		<members>User__c-User Layout</members>
+		<name>Layout</name>
+	</types>
     <version>58.0</version>
 </Package>
 
