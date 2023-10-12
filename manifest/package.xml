@@ -1,30 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>AdVent</members>
-        <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>Add__c</members>
-        <members>Assign_Add__c</members>
-        <members>Client__c</members>
-        <members>Redemption__c</members>
-        <members>User__c</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Add__c</members>
-        <members>Advertisement</members>
-        <members>Assign_Add__c</members>
-        <members>Client__c</members>
-        <members>Redemption__c</members>
-        <members>User__c</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>Create_Add</members>
-        <name>Flow</name>
-    </types>
 	<types>
 		<members>AdVent</members>
 		<name>CustomApplication</name>
@@ -64,6 +39,9 @@
 		<members>User__c-User Layout</members>
 		<name>Layout</name>
 	</types>
-    <version>58.0</version>
+	<types>
+		<members>AdVent_User</members>
+		<name>PermissionSet</name>
+	</types>
+	<version>58.0</version>
 </Package>
-

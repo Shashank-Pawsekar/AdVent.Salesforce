@@ -3,6 +3,7 @@
     <apiVersion>58.0</apiVersion>
     <environments>Default</environments>
     <interviewLabel>Create Add {!$Flow.CurrentDateTime}</interviewLabel>
+    <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
     <label>Create Add</label>
     <processMetadataValues>
         <name>BuilderType</name>
