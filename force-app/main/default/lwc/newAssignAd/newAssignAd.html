@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Assign Advertisement">
+        <div style="display: flex;">
+            <table style="width: 50%;">
+                <tr>
+                    <td>
+                        <div style="padding: 10px">
+                            <div style="padding: 10px">
+                                <lightning-datatable 
+                                    data={userData}
+                                    columns={columnUser}
+                                    key-field="Id"
+                                    onrowselection={handleRowSelectionUser}>  
+                                </lightning-datatable>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 50%;">
+                <tr>
+                    <td>
+                        <div style="padding: 10px">
+                            <div style="padding: 10px">
+                                <lightning-datatable
+                                    data={adData}
+                                    columns={columnAd}
+                                    key-field="Id"
+                                    onrowselection={handleRowSelectionAd}>
+                                </lightning-datatable>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+    <lightning-button
+      variant="brand"
+      label="Assign Advertisement"
+      onclick={handleCreateAssignAd}>
+    </lightning-button>
+    </lightning-card>
+    
+</template>

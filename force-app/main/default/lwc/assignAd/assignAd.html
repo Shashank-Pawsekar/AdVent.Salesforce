@@ -1,0 +1,101 @@
+<template>
+    <lightning-card title="Assign Advertisement">
+    <div style="display: flex;">
+        <table style="width: 50%;">
+            <tr>
+                <td>
+                    <div style="padding: 10px">
+                        <div style="padding: 10px">
+                            <table
+                                class="slds-table
+                                slds-table_cell-buffer
+                                slds-table_bordered
+                                slds-table_col-bordered"
+                                border="1"
+                                width="100%">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <td>
+                                            <lightning-input
+                                                type="checkbox"
+                                                onchange={handleAllChange}>
+                                            </lightning-input>
+                                        </td>
+                                        <td style="font-weight: bold">User Id</td>
+                                        <td style="font-weight: bold">Name</td>
+                                    </tr>
+                                </thead>
+                                <template for:each={userList} for:item="user">
+                                    <tr key={user.Id} class="slds-hint-parent">
+                                        <td>
+                                            <lightning-input
+                                                type="checkbox"
+                                                checked={user.isSelected}
+                                                onchange={handleCheckChange}
+                                                value={user.index}>
+                                            </lightning-input>
+                                        </td>
+                                        <td>{user.UserId}</td>
+                                        <td>{user.FirstName}</td>
+                                    </tr>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 50%;">
+            <tr>
+                <td>
+                    <div style="padding: 10px">
+                        <div style="padding: 10px">
+                            <table
+                                class="slds-table
+                                slds-table_cell-buffer
+                                slds-table_bordered
+                                slds-table_col-bordered"
+                                border="1"
+                                width="100%">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <td>
+                                            <lightning-input
+                                                type="checkbox"
+                                                onchange={handleAllChangeAd}>
+                                            </lightning-input>
+                                        </td>
+                                        <td style="font-weight: bold">Advertisement Id</td>
+                                        <td style="font-weight: bold">Advertisement Title</td>
+                                    </tr>
+                                </thead>
+                                <template for:each={adList} for:item="add">
+                                    <tr key={add.Id} class="slds-hint-parent">
+                                        <td>
+                                            <lightning-input
+                                                type="checkbox"
+                                                checked={add.isAdSelected}
+                                                onchange={handleCheckChangeAd}
+                                                value={add.indexAd}>
+                                            </lightning-input>
+                                        </td>
+                                        <td>{add.AdvId}</td>
+                                        <td>{add.AdTitle}</td>
+                                    </tr>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                </td>     
+            </tr>
+        </table>
+
+    </div>
+    <br />
+    <lightning-button
+      variant="brand"
+      label="Assign Advertisement"
+      onclick={getSelectedUsersAds}>
+    </lightning-button>
+</lightning-card>
+</template>
