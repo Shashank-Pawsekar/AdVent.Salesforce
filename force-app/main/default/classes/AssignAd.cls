@@ -14,8 +14,8 @@ public with sharing class AssignAd {
             for (j=0; j < selAdSize ; j++) 
                 {
                     Assign_Add__c Obj =  new Assign_Add__c();
-                    Obj.User__c = selUser[i].Name;
-                    Obj.Add__c = selAd[j].Name;
+                    Obj.User__c = selUser[i].Id;
+                    Obj.Add__c = selAd[j].Id;
                     asad.add(obj);
                 }
         }
