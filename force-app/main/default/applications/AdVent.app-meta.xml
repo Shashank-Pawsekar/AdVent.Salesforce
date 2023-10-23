@@ -20,7 +20,7 @@
     </actionOverrides>
     <brand>
         <headerColor>#2E84FD</headerColor>
-        <logo>Advent</logo>
+        <logo>Av</logo>
         <logoVersion>1</logoVersion>
         <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
     </brand>
@@ -34,10 +34,11 @@
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
     <tabs>Advertisement</tabs>
+    <tabs>Assign_Advertisement</tabs>
+    <tabs>Redemptions</tabs>
     <tabs>User__c</tabs>
     <tabs>Client__c</tabs>
     <tabs>Assign_Add__c</tabs>
-    <tabs>Redemption__c</tabs>
     <tabs>Add__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>AdVent_UtilityBar</utilityBar>

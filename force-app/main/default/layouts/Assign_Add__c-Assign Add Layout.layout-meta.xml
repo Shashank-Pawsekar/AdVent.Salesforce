@@ -15,8 +15,12 @@
                 <field>User__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Add__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UniqueIdentifier__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

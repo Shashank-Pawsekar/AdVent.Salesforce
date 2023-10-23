@@ -9,16 +9,12 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>richTextValue</name>
-                    <value>&lt;p&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;&lt;img src=&quot;https://arc-1c1-dev-ed.develop.file.force.com/servlet/rtaImage?refid=0EM2w0000067gWT&quot;&gt;&lt;/span&gt;&lt;/p&gt;</value>
+                    <value>&lt;p&gt;&lt;img src=&quot;https://arc-1c1-dev-ed.develop.file.force.com/servlet/rtaImage?refid=0EM2w0000067oIA&quot;&gt;&lt;/p&gt;</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:richText</componentName>
                 <identifier>flexipage_richText</identifier>
             </componentInstance>
         </itemInstances>
-        <name>region1</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -37,10 +33,6 @@
                 <identifier>flowruntime_interview</identifier>
             </componentInstance>
         </itemInstances>
-        <name>region2</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -71,12 +63,12 @@
                 <identifier>flexipage_filterListCard</identifier>
             </componentInstance>
         </itemInstances>
-        <name>region3</name>
+        <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Advertisement</masterLabel>
     <template>
-        <name>flexipage:appHomeTemplateHeaderTwoColumnsEqualWidth</name>
+        <name>flexipage:defaultAppHomeTemplate</name>
     </template>
     <type>AppPage</type>
 </FlexiPage>

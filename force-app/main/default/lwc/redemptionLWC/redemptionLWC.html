@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Redeem Points">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Username" value={username} onchange={handleUsernameChange}></lightning-input>
+            <lightning-input type="password" label="Password" value={password} onchange={handlePasswordChange}></lightning-input>
+            <lightning-button label="Login" onclick={handleLogin}></lightning-button>
+            <div if:true={user}>
+                <p>Hallo Dear {user.User_Liginname__c}.</p>
+                <p>User's Full Name: {user.First_Name__c} {user.User_s_Last_Name__c}</p>
+                <p>Total Redeemable Points: {user.Redemption_Points__c}</p>
+                <p>Last Redeemed Date: {user.User_Points_Last_Reimburse_Date__c}</p>
+                <lightning-input label="Redeem Points" value={redeemPoints} onchange={handleRedeemPointsChange}></lightning-input>
+                <lightning-button label="Redeem" onclick={handleRedeemPoints}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
