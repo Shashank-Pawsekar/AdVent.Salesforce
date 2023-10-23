@@ -1,0 +1,42 @@
+<template>
+    
+        <div style="padding: 10px">
+            <div style="padding: 10px">
+                <table
+                    class="slds-table
+                    slds-table_cell-buffer
+                    slds-table_bordered
+                    slds-table_col-bordered"
+                    border="1"
+                    width="100%">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <td>
+                                <lightning-input
+                                    type="checkbox"
+                                    onchange={handleAllChange}>
+                                </lightning-input>
+                            </td>
+                            <td style="font-weight: bold">User Id</td>
+                            <td style="font-weight: bold">Name</td>
+                        </tr>
+                    </thead>
+                    <template for:each={userList} for:item="user">
+                        <tr key={user.Id} class="slds-hint-parent">
+                            <td>
+                                <lightning-input
+                                    type="checkbox"
+                                    checked={user.isSelected}
+                                    onchange={handleCheckChange}
+                                    value={user.index}>
+                                </lightning-input>
+                            </td>
+                            <td>{user.UserId}</td>
+                            <td>{user.FirstName}</td>
+                        </tr>
+                    </template>
+                </table>
+            </div>
+        </div>
+            
+</template>

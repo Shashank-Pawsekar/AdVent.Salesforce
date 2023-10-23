@@ -1,0 +1,47 @@
+<template>
+    <div style="padding: 10px">
+        <div style="padding: 10px">
+            <table
+                class="slds-table
+                slds-table_cell-buffer
+                slds-table_bordered
+                slds-table_col-bordered"
+                border="1"
+                width="100%">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <td>
+                            <lightning-input
+                                type="checkbox"
+                                onchange={handleAllChangeAd}>
+                            </lightning-input>
+                        </td>
+                        <td style="font-weight: bold">Advertisement Id</td>
+                        <td style="font-weight: bold">Advertisement Title</td>
+                    </tr>
+                </thead>
+                <template for:each={adList} for:item="add">
+                    <tr key={add.Id} class="slds-hint-parent">
+                        <td>
+                            <lightning-input
+                                type="checkbox"
+                                checked={add.isAdSelected}
+                                onchange={handleCheckChangeAd}
+                                value={add.indexAd}>
+                            </lightning-input>
+                        </td>
+                        <td>{add.AdvId}</td>
+                        <td>{add.AdTitle}</td>
+                    </tr>
+                </template>
+            </table>
+        </div>
+    </div>
+
+    <br />
+    <lightning-button
+      variant="brand"
+      label="Select Advertises"
+      onclick={getSelectedAds}>
+    </lightning-button>
+</template>
