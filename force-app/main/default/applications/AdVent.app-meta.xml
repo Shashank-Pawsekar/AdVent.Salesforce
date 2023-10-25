@@ -40,6 +40,7 @@
     <tabs>Client__c</tabs>
     <tabs>Assign_Add__c</tabs>
     <tabs>Add__c</tabs>
+    <tabs>Redemption</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>AdVent_UtilityBar</utilityBar>
 </CustomApplication>

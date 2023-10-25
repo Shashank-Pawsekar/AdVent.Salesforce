@@ -91,6 +91,8 @@ global class Lead {
     global List<LeadHistory> Histories;
     global List<LeadShare> Shares;
     global List<ListEmailIndividualRecipient> ListEmailIndividualRecipients;
+    global List<MessagingEndUser> MessagingEndUsers;
+    global List<MessagingSession> MessagingSessions;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;
@@ -99,19 +101,26 @@ global class Lead {
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<RecordAction> RecordActions;
     global List<RecordActionHistory> RecordActionHistories;
+    global List<ServiceAppointment> ServiceAppointments;
     global List<Task> Tasks;
     global List<TopicAssignment> TopicAssignments;
     global List<UndecidedEventRelation> UndecidedEventRelations;
     global List<UserEmailPreferredPerson> PersonRecord;
+    global List<AIInsightValue> SobjectLookupValue;
+    global List<AIRecordInsight> Target;
     global List<CampaignMember> LeadOrContact;
     global List<CampaignMemberChangeEvent> Lead;
     global List<ContentDistribution> RelatedRecord;
+    global List<ContentDocumentLinkChangeEvent> LinkedEntity;
     global List<ContentVersion> FirstPublishLocation;
     global List<EventChangeEvent> Who;
     global List<EventRelationChangeEvent> Relation;
     global List<FeedComment> Parent;
-    global List<FlowRecordRelation> RelatedRecord;
+    global List<FlowExecutionErrorEvent> ContextRecord;
+    global List<FlowOrchestrationWorkItem> RelatedRecord;
     global List<OutgoingEmail> Who;
+    global List<ServiceAppointmentChangeEvent> ParentRecord;
+    global List<TaskChangeEvent> Who;
 
     global Lead () 
     {

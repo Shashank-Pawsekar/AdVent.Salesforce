@@ -138,6 +138,14 @@ declare module "@salesforce/schema/Opportunity.LastActivityDate" {
   const LastActivityDate:any;
   export default LastActivityDate;
 }
+declare module "@salesforce/schema/Opportunity.PushCount" {
+  const PushCount:number;
+  export default PushCount;
+}
+declare module "@salesforce/schema/Opportunity.LastStageChangeDate" {
+  const LastStageChangeDate:any;
+  export default LastStageChangeDate;
+}
 declare module "@salesforce/schema/Opportunity.FiscalQuarter" {
   const FiscalQuarter:number;
   export default FiscalQuarter;
@@ -173,4 +181,20 @@ declare module "@salesforce/schema/Opportunity.HasOpenActivity" {
 declare module "@salesforce/schema/Opportunity.HasOverdueTask" {
   const HasOverdueTask:boolean;
   export default HasOverdueTask;
+}
+declare module "@salesforce/schema/Opportunity.LastAmountChangedHistory" {
+  const LastAmountChangedHistory:any;
+  export default LastAmountChangedHistory;
+}
+declare module "@salesforce/schema/Opportunity.LastAmountChangedHistoryId" {
+  const LastAmountChangedHistoryId:any;
+  export default LastAmountChangedHistoryId;
+}
+declare module "@salesforce/schema/Opportunity.LastCloseDateChangedHistory" {
+  const LastCloseDateChangedHistory:any;
+  export default LastCloseDateChangedHistory;
+}
+declare module "@salesforce/schema/Opportunity.LastCloseDateChangedHistoryId" {
+  const LastCloseDateChangedHistoryId:any;
+  export default LastCloseDateChangedHistoryId;
 }

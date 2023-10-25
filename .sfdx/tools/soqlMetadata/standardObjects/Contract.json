@@ -643,6 +643,62 @@
           "label": "Expired",
           "validFor": null,
           "value": "Expired"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Rejected",
+          "validFor": null,
+          "value": "Rejected"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Negotiating",
+          "validFor": null,
+          "value": "Negotiating"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Awaiting Signature",
+          "validFor": null,
+          "value": "AwaitingSignature"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Signature Declined",
+          "validFor": null,
+          "value": "SignatureDeclined"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Signed",
+          "validFor": null,
+          "value": "Signed"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Canceled",
+          "validFor": null,
+          "value": "Cancelled"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Contract Expired",
+          "validFor": null,
+          "value": "Expired2"
+        },
+        {
+          "active": true,
+          "defaultValue": false,
+          "label": "Contract Terminated",
+          "validFor": null,
+          "value": "Terminated2"
         }
       ],
       "referenceTo": [],
@@ -863,6 +919,26 @@
   "childRelationships": [
     {
       "cascadeDelete": true,
+      "childSObject": "AIInsightValue",
+      "deprecatedAndHidden": false,
+      "field": "SobjectLookupValueId",
+      "junctionIdListNames": [],
+      "junctionReferenceTo": [],
+      "relationshipName": null,
+      "restrictedDelete": false
+    },
+    {
+      "cascadeDelete": true,
+      "childSObject": "AIRecordInsight",
+      "deprecatedAndHidden": false,
+      "field": "TargetId",
+      "junctionIdListNames": [],
+      "junctionReferenceTo": [],
+      "relationshipName": null,
+      "restrictedDelete": false
+    },
+    {
+      "cascadeDelete": true,
       "childSObject": "ActivityHistory",
       "deprecatedAndHidden": false,
       "field": "WhatId",
@@ -923,7 +999,27 @@
     },
     {
       "cascadeDelete": false,
+      "childSObject": "ContentDocumentLinkChangeEvent",
+      "deprecatedAndHidden": false,
+      "field": "LinkedEntityId",
+      "junctionIdListNames": [],
+      "junctionReferenceTo": [],
+      "relationshipName": null,
+      "restrictedDelete": false
+    },
+    {
+      "cascadeDelete": false,
       "childSObject": "ContentVersion",
+      "deprecatedAndHidden": false,
+      "field": "FirstPublishLocationId",
+      "junctionIdListNames": [],
+      "junctionReferenceTo": [],
+      "relationshipName": null,
+      "restrictedDelete": false
+    },
+    {
+      "cascadeDelete": false,
+      "childSObject": "ContentVersionChangeEvent",
       "deprecatedAndHidden": false,
       "field": "FirstPublishLocationId",
       "junctionIdListNames": [],
@@ -969,6 +1065,16 @@
       "junctionIdListNames": [],
       "junctionReferenceTo": [],
       "relationshipName": "Emails",
+      "restrictedDelete": false
+    },
+    {
+      "cascadeDelete": false,
+      "childSObject": "EmailMessageChangeEvent",
+      "deprecatedAndHidden": false,
+      "field": "RelatedToId",
+      "junctionIdListNames": [],
+      "junctionReferenceTo": [],
+      "relationshipName": null,
       "restrictedDelete": false
     },
     {
@@ -1026,6 +1132,26 @@
       "childSObject": "FeedItem",
       "deprecatedAndHidden": false,
       "field": "ParentId",
+      "junctionIdListNames": [],
+      "junctionReferenceTo": [],
+      "relationshipName": null,
+      "restrictedDelete": false
+    },
+    {
+      "cascadeDelete": false,
+      "childSObject": "FlowExecutionErrorEvent",
+      "deprecatedAndHidden": false,
+      "field": "ContextRecordId",
+      "junctionIdListNames": [],
+      "junctionReferenceTo": [],
+      "relationshipName": null,
+      "restrictedDelete": false
+    },
+    {
+      "cascadeDelete": false,
+      "childSObject": "FlowOrchestrationWorkItem",
+      "deprecatedAndHidden": false,
+      "field": "RelatedRecordId",
       "junctionIdListNames": [],
       "junctionReferenceTo": [],
       "relationshipName": null,

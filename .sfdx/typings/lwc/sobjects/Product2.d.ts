@@ -50,6 +50,10 @@ declare module "@salesforce/schema/Product2.Family" {
   const Family:string;
   export default Family;
 }
+declare module "@salesforce/schema/Product2.IsSerialized" {
+  const IsSerialized:boolean;
+  export default IsSerialized;
+}
 declare module "@salesforce/schema/Product2.ExternalDataSource" {
   const ExternalDataSource:any;
   export default ExternalDataSource;

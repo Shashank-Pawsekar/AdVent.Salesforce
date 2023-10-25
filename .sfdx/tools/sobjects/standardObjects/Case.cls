@@ -58,6 +58,7 @@ global class Case {
     global List<CaseContactRole> CaseContactRoles;
     global List<CaseFeed> Feeds;
     global List<CaseHistory> Histories;
+    global List<CaseMilestone> CaseMilestones;
     global List<CaseShare> Shares;
     global List<CaseSolution> CaseSolutions;
     global List<CaseTeamMember> TeamMembers;
@@ -70,21 +71,39 @@ global class Case {
     global List<EmailMessage> Emails;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<Event> Events;
+    global List<MessagingSession> MessagingSessions;
     global List<OpenActivity> OpenActivities;
+    global List<ProcessException> ProcessExceptions;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
+    global List<ProductRequest> ProductRequests;
+    global List<ProductRequestLineItem> ProductRequestLineItems;
     global List<RecordAction> RecordActions;
     global List<RecordActionHistory> RecordActionHistories;
+    global List<ReturnOrder> ReturnOrders;
+    global List<ServiceAppointment> ServiceAppointments;
+    global List<Swarm> Swarms;
+    global List<SwarmMember> SwarmMembers;
     global List<Task> Tasks;
     global List<TopicAssignment> TopicAssignments;
+    global List<WorkOrder> WorkOrders;
+    global List<AIInsightValue> SobjectLookupValue;
+    global List<AIRecordInsight> Target;
     global List<CaseChangeEvent> Parent;
     global List<ContentDistribution> RelatedRecord;
+    global List<ContentDocumentLinkChangeEvent> LinkedEntity;
     global List<ContentVersion> FirstPublishLocation;
+    global List<EmailMessageChangeEvent> Parent;
+    global List<EmailMessageChangeEvent> RelatedTo;
     global List<EventChangeEvent> What;
     global List<EventRelationChangeEvent> Relation;
     global List<FeedComment> Parent;
-    global List<FlowRecordRelation> RelatedRecord;
+    global List<FlowExecutionErrorEvent> ContextRecord;
+    global List<FlowOrchestrationWorkItem> RelatedRecord;
+    global List<ProductRequestChangeEvent> Case;
+    global List<ServiceAppointmentChangeEvent> ParentRecord;
     global List<TaskChangeEvent> What;
+    global List<WorkOrderChangeEvent> Case;
 
     global Case () 
     {

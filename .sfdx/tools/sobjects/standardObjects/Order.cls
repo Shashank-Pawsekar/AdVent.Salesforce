@@ -73,13 +73,17 @@ global class Order {
     global Datetime LastViewedDate;
     global Datetime LastReferencedDate;
     global List<ActivityHistory> ActivityHistories;
+    global List<AppUsageAssignment> AppUsageAssignments;
     global List<AttachedContentDocument> AttachedContentDocuments;
     global List<Attachment> Attachments;
     global List<CombinedAttachment> CombinedAttachments;
     global List<ContentDocumentLink> ContentDocumentLinks;
+    global List<CreditMemo> CreditMemos;
+    global List<DigitalSignature> DigitalSignatures;
     global List<EmailMessage> Emails;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<Event> Events;
+    global List<Invoice> Invoices;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;
@@ -88,21 +92,34 @@ global class Order {
     global List<OrderHistory> Histories;
     global List<OrderItem> OrderItems;
     global List<OrderShare> Shares;
+    global List<PaymentGroup> PaymentGroups;
+    global List<ProcessException> ProcessExceptions;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<RecordAction> RecordActions;
     global List<RecordActionHistory> RecordActionHistories;
+    global List<ReturnOrder> ReturnOrders;
     global List<Task> Tasks;
     global List<TopicAssignment> TopicAssignments;
+    global List<WorkOrderLineItem> WorkOrderLineItems;
+    global List<AIInsightValue> SobjectLookupValue;
+    global List<AIRecordInsight> Target;
+    global List<ContentDocumentLinkChangeEvent> LinkedEntity;
     global List<ContentVersion> FirstPublishLocation;
+    global List<DigitalSignatureChangeEvent> Parent;
+    global List<EmailMessageChangeEvent> RelatedTo;
     global List<EventChangeEvent> What;
     global List<EventRelationChangeEvent> Relation;
     global List<FeedComment> Parent;
-    global List<FlowRecordRelation> RelatedRecord;
+    global List<FlowExecutionErrorEvent> ContextRecord;
+    global List<FlowOrchestrationWorkItem> RelatedRecord;
     global List<OrderChangeEvent> OriginalOrder;
     global List<OrderItemChangeEvent> Order;
     global List<OutgoingEmail> RelatedTo;
+    global List<ProcessExceptionEvent> AttachedTo;
+    global List<ReturnOrderChangeEvent> Order;
     global List<TaskChangeEvent> What;
+    global List<WorkOrderLineItemChangeEvent> Order;
 
     global Order () 
     {

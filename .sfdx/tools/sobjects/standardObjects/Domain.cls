@@ -6,18 +6,13 @@
 // To edit your sObjects and their fields, edit the corresponding
 //     .object-meta.xml and .field-meta.xml files.
 
-global class Attachment {
+global class Domain {
     global Id Id;
-    global Boolean IsDeleted;
-    global SObject Parent;
-    global Id ParentId;
-    global String Name;
-    global Boolean IsPrivate;
-    global String ContentType;
-    global Integer BodyLength;
-    global Blob Body;
-    global SObject Owner;
-    global Id OwnerId;
+    global String DomainType;
+    global String Domain;
+    global Boolean OptionsHstsPreload;
+    global String CnameTarget;
+    global String HttpsOption;
     global Datetime CreatedDate;
     global User CreatedBy;
     global Id CreatedById;
@@ -25,11 +20,10 @@ global class Attachment {
     global User LastModifiedBy;
     global Id LastModifiedById;
     global Datetime SystemModstamp;
-    global String Description;
-    global List<FlowExecutionErrorEvent> ContextRecord;
-    global List<FlowRecordRelation> RelatedRecord;
+    global List<DomainSite> DomainSites;
+    global List<ManagedContentChannel> Domain;
 
-    global Attachment () 
+    global Domain () 
     {
     }
 }

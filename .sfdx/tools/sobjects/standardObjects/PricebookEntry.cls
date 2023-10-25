@@ -26,10 +26,18 @@ global class PricebookEntry {
     global String ProductCode;
     global Boolean IsDeleted;
     global Boolean IsArchived;
+    global List<ContractLineItem> ContractLineItems;
     global List<OpportunityLineItem> OpportunityLineItems;
     global List<OrderItem> OrderItems;
+    global List<PricebookEntryHistory> Histories;
+    global List<ProductConsumed> ProductsConsumed;
     global List<RecordAction> RecordActions;
     global List<RecordActionHistory> RecordActionHistories;
+    global List<WorkOrderLineItem> WorkOrderLineItems;
+    global List<AIInsightValue> SobjectLookupValue;
+    global List<AIRecordInsight> Target;
+    global List<ContractLineItemChangeEvent> PricebookEntry;
+    global List<FlowExecutionErrorEvent> ContextRecord;
     global List<FlowRecordRelation> RelatedRecord;
     global List<OrderItemChangeEvent> PricebookEntry;
 

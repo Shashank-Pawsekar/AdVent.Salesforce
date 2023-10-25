@@ -254,3 +254,11 @@ declare module "@salesforce/schema/Account.DandbCompanyId" {
   const DandbCompanyId:any;
   export default DandbCompanyId;
 }
+declare module "@salesforce/schema/Account.OperatingHours" {
+  const OperatingHours:any;
+  export default OperatingHours;
+}
+declare module "@salesforce/schema/Account.OperatingHoursId" {
+  const OperatingHoursId:any;
+  export default OperatingHoursId;
+}

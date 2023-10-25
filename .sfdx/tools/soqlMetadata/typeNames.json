@@ -4,6 +4,14 @@
     "custom": false
   },
   {
+    "name": "AccountHistory",
+    "custom": false
+  },
+  {
+    "name": "Asset",
+    "custom": false
+  },
+  {
     "name": "Attachment",
     "custom": false
   },
@@ -17,6 +25,10 @@
   },
   {
     "name": "Contract",
+    "custom": false
+  },
+  {
+    "name": "Domain",
     "custom": false
   },
   {

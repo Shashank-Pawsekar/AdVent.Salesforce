@@ -6,27 +6,20 @@
 // To edit your sObjects and their fields, edit the corresponding
 //     .object-meta.xml and .field-meta.xml files.
 
-global class Note {
+global class AccountHistory {
     global Id Id;
     global Boolean IsDeleted;
-    global SObject Parent;
-    global Id ParentId;
-    global String Title;
-    global Boolean IsPrivate;
-    global String Body;
-    global User Owner;
-    global Id OwnerId;
-    global Datetime CreatedDate;
+    global Account Account;
+    global Id AccountId;
     global User CreatedBy;
     global Id CreatedById;
-    global Datetime LastModifiedDate;
-    global User LastModifiedBy;
-    global Id LastModifiedById;
-    global Datetime SystemModstamp;
-    global List<FlowExecutionErrorEvent> ContextRecord;
-    global List<FlowRecordRelation> RelatedRecord;
+    global Datetime CreatedDate;
+    global String Field;
+    global String DataType;
+    global Object OldValue;
+    global Object NewValue;
 
-    global Note () 
+    global AccountHistory () 
     {
     }
 }
