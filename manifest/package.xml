@@ -8,6 +8,13 @@
 		<name>ApexClass</name>
 	</types>
 	<types>
+		<members>Ad</members>
+		<members>Ad1</members>
+		<members>Advent</members>
+		<members>Av</members>
+		<name>ContentAsset</name>
+	</types>
+	<types>
 		<members>AdVent</members>
 		<name>CustomApplication</name>
 	</types>
