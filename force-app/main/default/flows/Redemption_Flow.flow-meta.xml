@@ -1,92 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>email_after_Redemption</name>
-        <label>email after Redemption</label>
-        <locationX>1036</locationX>
-        <locationY>502</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>emailSubject</name>
-            <value>
-                <stringValue>Redemption Points</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailBody</name>
-            <value>
-                <elementReference>Redemption_email_temp</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>sendRichBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>User_s_Info.Email__c</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
     <apiVersion>59.0</apiVersion>
     <decisions>
-        <name>Check_User</name>
-        <label>Check User</label>
-        <locationX>672</locationX>
-        <locationY>211</locationY>
+        <name>checkPass</name>
+        <label>checkPass</label>
+        <locationX>644</locationX>
+        <locationY>287</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>If_Matched</name>
+            <name>ifcorrect</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>User_s_Info.User_Password__c</leftValueReference>
+                <leftValueReference>GetUserRecord.User_Password__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>Password</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>correct_info</targetReference>
+                <targetReference>User_Record</targetReference>
             </connector>
-            <label>If Matched</label>
+            <label>ifcorrect</label>
         </rules>
         <rules>
-            <name>If_not_Matched</name>
+            <name>ifIncorrect</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>User_s_Info.User_Password__c</leftValueReference>
+                <leftValueReference>GetUserRecord.User_Password__c</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
                     <elementReference>Password</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Error_Message</targetReference>
+                <targetReference>Error</targetReference>
             </connector>
-            <label>If not Matched</label>
+            <label>ifIncorrect</label>
         </rules>
     </decisions>
     <dynamicChoiceSets>
-        <name>UsersList</name>
+        <name>SelectedUserData</name>
         <dataType>String</dataType>
         <displayField>User_Liginname__c</displayField>
         <object>User__c</object>
-        <sortField>Name</sortField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>UserRecordSet</name>
+        <dataType>String</dataType>
+        <displayField>User_Liginname__c</displayField>
+        <object>User__c</object>
+        <sortField>User_Liginname__c</sortField>
         <sortOrder>Asc</sortOrder>
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
-        <name>Formula2</name>
+        <name>CalculateRemainingRedPoints</name>
         <dataType>Number</dataType>
-        <expression>{!User_s_Info.Total_points__c}-{!Redemption_Points}</expression>
-        <scale>0</scale>
+        <expression>{!GetUserRecord.Redemption_Points__c}-{!Enter_Redemption_Points}</expression>
+        <scale>2</scale>
     </formulas>
     <interviewLabel>Redemption Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Redemption Flow</label>
@@ -110,20 +81,20 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordLookups>
-        <name>User_s_Info</name>
-        <label>User&apos;s Info</label>
-        <locationX>516</locationX>
-        <locationY>211</locationY>
+        <name>GetUserRecord</name>
+        <label>GetUserRecord</label>
+        <locationX>517</locationX>
+        <locationY>285</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Check_User</targetReference>
+            <targetReference>checkPass</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>User_Liginname__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Users</elementReference>
+                <elementReference>Select_Username</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -131,117 +102,88 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Updated_Info</name>
-        <label>Updated Info</label>
-        <locationX>536</locationX>
-        <locationY>410</locationY>
+        <name>UpdateUserRedPoints</name>
+        <label>UpdateUserRedPoints</label>
+        <locationX>945</locationX>
+        <locationY>350</locationY>
         <connector>
-            <targetReference>Last_Screen</targetReference>
+            <targetReference>Congo_Redeemption</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Total_points__c</field>
+            <field>User_Liginname__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>User_s_Info.Total_points__c</elementReference>
+                <elementReference>Select_Username</elementReference>
             </value>
         </filters>
         <inputAssignments>
-            <field>Last_Redemption_Date__c</field>
+            <field>Redemption_Points__c</field>
             <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
+                <elementReference>CalculateRemainingRedPoints</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Total_points__c</field>
+            <field>User_Points_Last_Reimburse_Date__c</field>
             <value>
-                <elementReference>Formula2</elementReference>
+                <elementReference>$Flow.CurrentDate</elementReference>
             </value>
         </inputAssignments>
         <object>User__c</object>
     </recordUpdates>
     <screens>
-        <name>correct_info</name>
-        <label>correct info</label>
-        <locationX>856</locationX>
-        <locationY>324</locationY>
+        <name>Congo_Redeemption</name>
+        <label>Congo Redeemption</label>
+        <locationX>1040</locationX>
+        <locationY>344</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Updated_Info</targetReference>
-        </connector>
         <fields>
-            <name>Correct_Screen</name>
-            <fieldText>&lt;p&gt;First Name :- {!User_s_Info.First_Name__c}&lt;/p&gt;&lt;p&gt;Last Name :- {!User_s_Info.User_s_Last_Name__c}&lt;/p&gt;&lt;p&gt;Total Points :- {!User_s_Info.Total_points__c}&lt;/p&gt;&lt;p&gt;Last Redemption Date :- {!User_s_Info.Last_Redemption_Date__c}&lt;/p&gt;</fieldText>
+            <name>Congo</name>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Congratulations !!!&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;{!Select_Username} have redeemed {!Enter_Redemption_Points} Points.&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>Redemption_Points</name>
-            <dataType>Number</dataType>
-            <fieldText>Redemption Points</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
-            <scale>0</scale>
-            <validationRule>
-                <errorMessage>&lt;p&gt;Redemption points should be less than {!User_s_Info.Total_points__c}.&lt;/p&gt;</errorMessage>
-                <formulaExpression>{!User_s_Info.Total_points__c} &gt; {!Redemption_Points}</formulaExpression>
-            </validationRule>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>Error_Message</name>
-        <label>Error Message</label>
-        <locationX>879</locationX>
-        <locationY>54</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <fields>
-            <name>Error_Text</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(231, 10, 10); font-size: 14px; font-family: serif;&quot;&gt;Dear &lt;/strong&gt;{!User_s_Info.First_Name__c} ,&lt;/p&gt;&lt;p&gt;You have entered a wrong password, please enter a correct password.&lt;/p&gt;</fieldText>
+            <name>UserInfo</name>
+            <fieldText>&lt;p&gt;User Full Name - {!GetUserRecord.First_Name__c} {!GetUserRecord.User_s_Last_Name__c}&lt;/p&gt;&lt;p&gt;Email - {!GetUserRecord.Email__c}&lt;/p&gt;&lt;p&gt;Last Redeemption Date - {!GetUserRecord.User_Points_Last_Reimburse_Date__c}&lt;/p&gt;&lt;p&gt;Total Remaining Points - {!CalculateRemainingRedPoints}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <screens>
-        <name>Last_Screen</name>
-        <label>Last Screen</label>
-        <locationX>848</locationX>
-        <locationY>496</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
+        <name>Error</name>
+        <label>Error</label>
+        <locationX>814</locationX>
+        <locationY>221</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>false</allowFinish>
         <allowPause>false</allowPause>
-        <connector>
-            <targetReference>email_after_Redemption</targetReference>
-        </connector>
         <fields>
-            <name>Final_Display</name>
-            <fieldText>&lt;p&gt;First Name :- {!User_s_Info.First_Name__c}&lt;/p&gt;&lt;p&gt;Last Name :- {!User_s_Info.User_s_Last_Name__c}&lt;/p&gt;&lt;p&gt;total points :- {!Formula2}&lt;/p&gt;&lt;p&gt;Last Redemption Date :- {!$Flow.CurrentDateTime}&lt;/p&gt;</fieldText>
+            <name>ErrorMes</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(253, 0, 0);&quot;&gt;Dear &lt;/strong&gt;&lt;strong style=&quot;color: rgb(253, 0, 0); font-size: 16px;&quot;&gt;{!Select_Username}&lt;/strong&gt;&lt;strong style=&quot;color: rgb(253, 0, 0);&quot;&gt;, You have entered Wrong Password!&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(253, 0, 0);&quot;&gt;Please re-enter Correct password.&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Redemption</name>
-        <label>Redemption</label>
-        <locationX>393</locationX>
-        <locationY>201</locationY>
+        <label>Log in for Redemption</label>
+        <locationX>411</locationX>
+        <locationY>285</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>User_s_Info</targetReference>
+            <targetReference>GetUserRecord</targetReference>
         </connector>
         <fields>
-            <name>Users</name>
-            <choiceReferences>UsersList</choiceReferences>
+            <name>Select_Username</name>
+            <choiceReferences>UserRecordSet</choiceReferences>
             <dataType>String</dataType>
-            <fieldText>Users</fieldText>
+            <fieldText>Select Username</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>true</isRequired>
         </fields>
@@ -254,17 +196,43 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>User_Record</name>
+        <label>User Record</label>
+        <locationX>818</locationX>
+        <locationY>345</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>UpdateUserRedPoints</targetReference>
+        </connector>
+        <fields>
+            <name>UserRecDisplay</name>
+            <fieldText>&lt;p&gt;User Name - {!GetUserRecord.First_Name__c} {!GetUserRecord.User_s_Last_Name__c}.&lt;/p&gt;&lt;p&gt;Last Redemption Date - {!GetUserRecord.User_Points_Last_Reimburse_Date__c}&lt;/p&gt;&lt;p&gt;Total Redemption Points - {!GetUserRecord.Redemption_Points__c}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Enter_Redemption_Points</name>
+            <dataType>Number</dataType>
+            <fieldText>Enter Redemption Points</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Redemption Points should be less than {!GetUserRecord.Redemption_Points__c}.&lt;/p&gt;</errorMessage>
+                <formulaExpression>{!Enter_Redemption_Points}&lt;{!GetUserRecord.Redemption_Points__c}</formulaExpression>
+            </validationRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <start>
-        <locationX>11</locationX>
-        <locationY>198</locationY>
+        <locationX>50</locationX>
+        <locationY>266</locationY>
         <connector>
             <targetReference>Redemption</targetReference>
         </connector>
     </start>
     <status>Active</status>
-    <textTemplates>
-        <name>Redemption_email_temp</name>
-        <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Hi {!User_s_Info.First_Name__c},&lt;/p&gt;&lt;p&gt;you have redeemed &lt;span style=&quot;color: rgb(221, 10, 10);&quot;&gt;{!Redemption_Points}&lt;/span&gt; points successfully.&lt;/p&gt;</text>
-    </textTemplates>
 </Flow>
