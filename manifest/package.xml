@@ -40,9 +40,7 @@
 	<types>
 		<members>Assign_Ad_from_Add_to_User</members>
 		<members>Create_Add</members>
-		<members>Mapping_add</members>
 		<members>Redemption_Flow</members>
-		<members>TriggerAssignAd</members>
 		<name>Flow</name>
 	</types>
 	<types>
